@@ -1,0 +1,24 @@
+# CDK
+cdk.out/
+
+# Build output
+dist/
+
+# Dependencies
+node_modules/
+
+# TypeScript
+*.js
+*.d.ts
+*.js.map
+
+# Exceptions — keep CDK entry point and config as JS if needed
+!jest.config.js
+
+# OS
+.DS_Store
+
+# Claude
+.claude
+CLAUDE.md
+aws-resource-next-steps.md
