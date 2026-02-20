@@ -35,6 +35,9 @@ export class BackendStack extends cdk.Stack {
       code: lambda.Code.fromAsset(path.join(__dirname, '../../blog-backend'), {
         bundling: {
           image: lambda.Runtime.PYTHON_3_12.bundlingImage,
+          // Force x86_64 Linux so native extensions (pydantic_core, cryptography)
+          // are compiled for the Lambda execution environment, not the build host.
+          platform: 'linux/amd64',
           command: [
             'bash', '-c',
             [
