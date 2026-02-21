@@ -55,6 +55,7 @@ export class BackendStack extends cdk.Stack {
         ENV: 'production',
         ADMIN_EMAIL: ssm.StringParameter.valueForStringParameter(this, '/botthef/admin-email'),
         NEXTAUTH_SECRET: ssm.StringParameter.valueForStringParameter(this, '/botthef/nextauth-secret'),
+        MCP_API_KEY: ssm.StringParameter.valueForStringParameter(this, '/botthef/mcp-api-key'),
       },
     });
 
