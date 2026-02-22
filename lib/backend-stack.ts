@@ -103,6 +103,9 @@ export class BackendStack extends cdk.Stack {
     // Upload pre-signed URL generation
     httpApi.addRoutes({ path: '/api/upload-url', methods: [apigwv2.HttpMethod.POST], integration: adminIntegration });
 
+    // LeetCode stats sync (triggered by MCP server or local cron)
+    httpApi.addRoutes({ path: '/api/leetcode/sync', methods: [apigwv2.HttpMethod.POST], integration: adminIntegration });
+
     // ── Vercel IAM User (frontend read-only access) ───────────────────────────
     const vercelUser = new iam.User(this, 'VercelFrontendUser', {
       userName: 'botthef-vercel-frontend',
